@@ -15,7 +15,7 @@ const message = (db: Connection): GraphQLFieldConfig<unknown, IncomingMessage, {
         },
         resolve: (_, {content,name}, incommingMessage) => {
             let meta = new Meta();
-            meta.ip = incommingMessage.connection.remoteAddress??"NA";
+            meta.ip = incommingMessage.socket.remoteAddress??"NA";
             meta.user_agent = incommingMessage.headers['user-agent']??"NA";
 
             let metaRepository = db.getRepository(Meta);

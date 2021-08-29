@@ -8,7 +8,7 @@ import {
 } from "typeorm";
 import {Message} from "./message";
 
-@Entity({ name: "shoutbox.meta" })
+@Entity({ name: "meta" })
 export class Meta extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number;

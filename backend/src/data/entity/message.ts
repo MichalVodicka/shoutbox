@@ -9,13 +9,14 @@ import {
 import {Meta} from "./meta";
 
 
-@Entity({ name: "shoutbox.message" })
+@Entity({ name: "message" })
 export class Message extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number;
 
     @Column()
     content!: string;
+
 
     @Column()
     name!: string;
