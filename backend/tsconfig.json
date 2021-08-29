@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true, // because of TypeORM
+    "emitDecoratorMetadata": true, // because of TypeORM
     "outDir": "./dist",
     "module": "commonjs",
     "strict": true,

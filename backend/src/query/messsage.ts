@@ -1,16 +1,17 @@
 import * as graphql from "graphql";
-import {GraphQLFieldConfig} from "graphql";
+import {GraphQLFieldConfig,GraphQLList} from "graphql";
 import {messageType} from '../qlTypes'
+import {Connection} from "typeorm";
+import {Meta} from "../data/entity/meta";
+import {IncomingMessage} from "http";
+import {Message} from "../data/entity/message";
 
-
-const message:GraphQLFieldConfig<any,any,any>=  {
-    type: messageType,
-    // `args` describes the arguments that the `user` query accepts
-    args: {
-        id: { type: graphql.GraphQLString }
-    },
-    resolve: (_, {id}) => {
-        return id;
+const message = (db: Connection):GraphQLFieldConfig<unknown,IncomingMessage,unknown> =>  {
+    return  {
+        type: new GraphQLList(messageType),
+        resolve: (_, __) => {
+            return db.getRepository(Message).find()
+        }
     }
 }
 

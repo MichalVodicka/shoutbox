@@ -1,10 +1,11 @@
 import * as graphql from "graphql";
 import {message} from './message'
+import {Connection} from "typeorm";
 
-var mutationType = new graphql.GraphQLObjectType({
+var mutationType = (db:Connection)=> new graphql.GraphQLObjectType({
     name: 'Mutation',
     fields: {
-        message
+        message:message(db)
     }
 });
 

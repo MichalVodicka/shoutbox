@@ -1,12 +1,13 @@
 import {GraphQLObjectType} from "graphql";
 import {message} from './messsage'
+import {Connection} from "typeorm";
 
 
 // Define the Query type
-const queryType = new GraphQLObjectType({
+const queryType = (db:Connection)=>new GraphQLObjectType({
     name: 'Query',
     fields: {
-        message
+        message:message(db)
     }
 });
 
