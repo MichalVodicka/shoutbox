@@ -1,0 +1,28 @@
+{
+  "name": "shoutbox",
+  "version": "0.0.1",
+  "description": "A simple shoutbox application, which stores messages in database.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichalVodicka/shoutbox.git"
+  },
+  "author": "Michal Vodicka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MichalVodicka/shoutbox/issues"
+  },
+  "homepage": "https://github.com/MichalVodicka/shoutbox#readme",
+  "devDependencies": {
+    "typescript": "^4.3.5",
+    "webpack": "^5.51.1"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router": "^5.2.0"
+  }
+}
