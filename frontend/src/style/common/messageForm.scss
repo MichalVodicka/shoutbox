@@ -1,0 +1,41 @@
+.message-form{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto auto ;
+  & > div {
+
+    padding: 10px;
+  }
+  .form{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    textarea{
+      width: 100%;
+      height: 70px;
+
+      font-size: 1.2em;
+    }
+  }
+
+  .submit{
+    float: right;
+    grid-column-start:2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    width: 100%;
+  }
+
+  .name{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    input[type='text']{
+      font-size: 1.4em;
+    }
+    width: 100%;
+  }
+}

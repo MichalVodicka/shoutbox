@@ -1,0 +1,36 @@
+@media screen and (min-width: 800px) {
+
+  #shoutbox {
+    grid-template-columns: auto 400px 400px auto;
+    grid-template-rows: auto 100px 600px auto ;
+  }
+
+  .message{
+    color: black;
+    border-radius: 15px 20px 15px 0;
+    .title{
+      font-size: 1.2em;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 2;
+    }
+    .date{
+      text-align: right;
+      font-size: 0.7em;
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 2;
+    }
+    .content{
+
+      font-size: .8em;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
+  }
+}
+

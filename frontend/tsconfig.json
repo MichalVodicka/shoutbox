@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "esNext",
+    "target": "es5",
+    "moduleResolution": "Node",
+    "sourceMap": true,
+    "jsx": "react-jsx",
+    "preserveConstEnums": true,
+    "lib": [
+      "dom",
+      "es5",
+      "scripthost",
+      "es2015.promise"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "files": ["src/index.tsx"],
+  "include": ["src","index.d.ts"]
+}

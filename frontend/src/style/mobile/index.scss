@@ -1,0 +1,71 @@
+@media screen and (max-width: 800px) {
+
+  #shoutbox {
+    grid-template-columns: 0 auto auto 0;
+    grid-template-rows: 0 50px auto 0;
+  }
+
+  .message{
+    grid-template-columns: auto 200px;
+    border-width: 4px 0;
+    .title{
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start:1;
+      grid-row-end: 2;
+      text-align: right;
+    }
+    .date{
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
+    .content{
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+  }
+
+  .message-form{
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto ;
+    .form{
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 2;
+      textarea{
+        width: 100%;
+        height: 70px;
+      }
+    }
+
+    .submit{
+
+      grid-column-start:1;
+      grid-column-end: 2;
+      grid-row-start: 3;
+      grid-row-end: 4;
+      button {
+        width: 100%;
+        height: 4em;
+      }
+    }
+
+    .name{
+      display: flex;
+      flex-direction: column;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 2;
+      grid-row-end: 3;
+      width: 100%;
+
+    }
+  }
+
+}

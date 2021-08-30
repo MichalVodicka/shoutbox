@@ -10,3 +10,8 @@ A simple shoutbox application, which stores messages in database.
 docker-compose up
 ```
 
+##how to access
+
+localhost:4000 
+
+* the port is based on your .env file
