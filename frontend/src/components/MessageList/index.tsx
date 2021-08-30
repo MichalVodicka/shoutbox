@@ -1,5 +1,5 @@
 import {useQuery} from 'urql';
-import {Fragment, useEffect} from 'react';
+import {useEffect} from 'react';
 import {Message} from "./Message";
 
 const MessageListQuery = ` {
