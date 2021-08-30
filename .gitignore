@@ -106,6 +106,6 @@ dist
 # docker postgres
 
 ./backend/db-data
-
+db-data
 # IDE
 .idea
