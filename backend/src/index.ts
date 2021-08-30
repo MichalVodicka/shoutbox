@@ -3,7 +3,7 @@ import * as graphql from 'graphql'
 import queryType from "./query";
 import mutationType from "./mutation";
 import {graphqlHTTP} from "express-graphql";
-
+const {PORT = 4000} = process.env
 import {connect} from "./data";
 connect().then(db =>{
     var schema = new graphql.GraphQLSchema({query: queryType(db), mutation:mutationType(db)});
@@ -13,7 +13,9 @@ connect().then(db =>{
         schema: schema,
         graphiql: true,
     }));
-    app.listen(4000);
+
+    app.use(express.static('../frontend/dist'))
+    app.listen(PORT);
     console.log('Running a GraphQL API server at localhost:4000/graphql');
 })
     .catch(error => console.log(error));
