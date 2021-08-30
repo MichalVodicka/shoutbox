@@ -42,8 +42,12 @@ npm ci
 npm run watch
 ```
 
+npm run watch -- development
+
+npm run build -- production
+
 ## DB
 you can run postgres in docker or you can your (local) instance 
 ```
-docker-compose -f docker-compose.dev.yml up
+docker-compose -f docker-compose.dev.yml up --build
 ```

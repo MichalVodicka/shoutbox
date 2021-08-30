@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch",
-    "start": "webpack serve --open",
+    "link-dist": "ln -s dist/ ../backend/dist/public",
+    "watch": "NODE_ENV=development webpack --watch",
+    "start": "NODE_ENV=development webpack serve --open",
     "build": "webpack"
   },
   "repository": {

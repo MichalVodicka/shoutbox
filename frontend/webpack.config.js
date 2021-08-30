@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const rawRules = {test: /\.txt$/, use: 'raw-loader'}
@@ -24,17 +23,25 @@ const sassRules = {
     ],
 }
 
-const output = {
-    path: path.resolve(__dirname, 'dist'),
+process.env.NODE_ENV
+
+const outputDev = {
+    path: path.resolve(path.join(__dirname, '../backend/dist/public')),
     filename: 'shoutbox.bundle.js',
 };
 
-const mode = 'development'
+
+const output = {
+    path: path.resolve(path.join(__dirname, 'dist')),
+    filename: 'shoutbox.bundle.js',
+};
+
+const mode = process.env.NODE_ENV
 
 
 module.exports = {
     entry: './src/index.tsx',
-    output: output,
+    output: mode === 'production' ? output :outputDev,
     cache: false,
     mode,
     resolve: {
@@ -64,13 +71,10 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: mode === 'development' ? "DEVELOPMENT" : 'Output Management',
+            title: mode === 'production' ? "Production" : 'DEVELOPMENT',
             template: "./src/index.pug",
             hash: true
         }),
         new CleanWebpackPlugin(),
-        new webpack.ProvidePlugin({
-            'earcut': 'earcut'
-        }),
     ],
 };

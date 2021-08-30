@@ -19,5 +19,5 @@ COPY backend/src/ src/
 RUN ./node_modules/.bin/tsc
 EXPOSE $PORT
 COPY --from=febuild /app/dist /app/dist/public
-USER node
-CMD ["node", "./dist/index.js"]
+WORKDIR /app/dist
+CMD ["node", "./index.js"]
