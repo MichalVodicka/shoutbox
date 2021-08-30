@@ -14,6 +14,7 @@ cp template.env .env
 docker-compose up --build
 ```
 * editing .env file you can change ports and postgres username but for testing it should be sufficient
+
 ##how to access
 
 localhost:4000 
