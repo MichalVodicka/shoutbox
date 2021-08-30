@@ -23,7 +23,6 @@ const sassRules = {
     ],
 }
 
-process.env.NODE_ENV
 
 const outputDev = {
     path: path.resolve(path.join(__dirname, '../backend/dist/public')),
