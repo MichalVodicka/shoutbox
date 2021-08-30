@@ -14,7 +14,7 @@ connect().then(db =>{
         graphiql: true,
     }));
 
-    app.use(express.static('public'))
+    app.use(express.static(__dirname +'public'))
     app.listen(PORT);
     console.log(`Running a GraphQL API server at localhost:${PORT}/graphql`);
 })
