@@ -6,6 +6,6 @@ create table message
 	message varchar not null,
 	name varchar not null,
 	ip varchar not null,
-	user_agent varchar not null
+	user_agent varchar not null,
 	created_at timestamp with time zone not null
 );
