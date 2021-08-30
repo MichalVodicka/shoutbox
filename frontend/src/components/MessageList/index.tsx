@@ -7,6 +7,8 @@ const MessageListQuery = ` {
         name
         content
         created_at
+        ip
+        user_agent
       }
 }
 `;
