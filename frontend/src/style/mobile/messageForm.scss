@@ -1,0 +1,54 @@
+.message-form{
+
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto ;
+  .form{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    textarea{
+      width: 100%;
+      height: 70px;
+      background-color: rgba(255,255,255,0.8);
+      border:none;
+    }
+  }
+
+  .submit{
+
+    grid-column-start:1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+text-align: center;
+    vertical-align: middle;
+    height: 50px;
+  }
+
+  .name{
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    width: 100%;
+    input[type='text']{
+      width: 100%;
+      background-color: rgba(255,255,255,0.8);
+      border:none;
+    }
+
+
+  }
+  .error{
+    grid-column-start:1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background-color: white;
+    color: #DF4F3A;
+    padding: 10px;
+  }
+}
