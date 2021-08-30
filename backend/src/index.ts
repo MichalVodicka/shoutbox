@@ -16,7 +16,7 @@ connect().then(db =>{
 
     app.use(express.static('../frontend/dist'))
     app.listen(PORT);
-    console.log('Running a GraphQL API server at localhost:4000/graphql');
+    console.log(`Running a GraphQL API server at localhost:${PORT}/graphql`);
 })
     .catch(error => console.log(error));
 

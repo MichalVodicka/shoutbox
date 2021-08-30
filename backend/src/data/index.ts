@@ -1,7 +1,5 @@
-import {ConnectionOptions, createConnection} from "typeorm";
-import {Meta} from "./entity/meta";
+import {createConnection} from "typeorm";
 import {Message} from "./entity/message";
-import {PostgresConnectionOptions} from "typeorm/driver/postgres/PostgresConnectionOptions";
 const {
     DB_HOST = 'localhost',
     DB_PORT = 5432,
@@ -24,7 +22,6 @@ export const connect = ()=> createConnection({
     password: DB_PASS,
     database: DB_NAME,
     entities: [
-        Meta,
         Message
     ],
     synchronize: true,

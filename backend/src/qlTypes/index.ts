@@ -7,6 +7,8 @@ const messageType = new graphql.GraphQLObjectType({
         id: { type: graphql.GraphQLString },
         name: { type: graphql.GraphQLString },
         created_at: { type: graphql.GraphQLString },
+        ip: { type: graphql.GraphQLString },
+        user_agent: { type: graphql.GraphQLString },
     }
 });
 
