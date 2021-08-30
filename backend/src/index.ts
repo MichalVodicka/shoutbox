@@ -16,8 +16,7 @@ connect().then(db =>{
         graphiql: true,
     }));
     app.use(express.static(join(__dirname,'public')))
-    app.listen(PORT,()=>console.log(`Running a GraphQL API server at localhost:${PORT}/graphql`));
+    app.listen(PORT,()=>console.log(`Running a GraphQL API server at localhost:${PORT}/`));
 
-})
-    .catch(error => console.log(error));
+}).catch(error => console.log(error));
 
