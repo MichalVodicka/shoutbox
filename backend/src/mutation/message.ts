@@ -26,7 +26,10 @@ const message = (db: Connection): GraphQLFieldConfig<unknown, IncomingMessage, {
             message.user_agent = incommingMessage.headers['user-agent']??"NA";
 
             let msgRepository = db.getRepository(Message);
-            return msgRepository.save(message)
+            return msgRepository.save(message).then(msg=>{
+                // leave only MAX_MESSAGE messages
+                return db.query(`delete from message where id not in (select id from message  order by id desc limit ${MAX_MESSAGE} )`)
+            })
 
 
         }
