@@ -5,11 +5,19 @@ services:
   db:
     env_file:
       - .env
-    image: postgres
+    image: postgres:latest
     restart: always
     ports:
       - "5432:5432"
     volumes:
       - ./seed_database.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
       - ./db-data/:/var/lib/postgresql/data/
+  web:
+    build: .
+    env_file:
+      - .env
+    links:
+      - db
+    ports:
+      - "${EXTERNAL_PORT}:${PORT}"
 
