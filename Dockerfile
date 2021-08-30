@@ -36,7 +36,7 @@ RUN npm ci
 COPY backend/src/ src/
 RUN ./node_modules/.bin/tsc
 EXPOSE $PORT
-COPY --from=febuild /app/dist /app/dist/public
+COPY --from=febuild /app /app/public
 USER node
 CMD ["ls", "-la"]
 CMD ["node", "./dist/index.js"]
