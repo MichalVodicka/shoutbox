@@ -5,6 +5,8 @@ import * as graphql from "graphql";
 import {Connection} from "typeorm";
 import {Message} from "../data/entity/message";
 
+const {MAX_MESSAGE = 30 } = process.env
+
 const message = (db: Connection): GraphQLFieldConfig<unknown, IncomingMessage, { content?: string,name?:string, [argName: string]: any; }> => {
     return {
         type: messageType,

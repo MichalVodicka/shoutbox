@@ -15,25 +15,35 @@ const MessageMutation = `
 
 export const MessageForm = () => {
 
-    const [name,setName] = useState();
-    const [msg,setMsg] = useState();
-    const handleNameChange = (ev:SyntheticEvent) => setName(ev.target.value)
-    const handleMsgChange = (ev:SyntheticEvent) => setMsg(ev.target.value)
-    const handleSubmit = ()=>{
-        console.log(msg)
-        console.log(name)
-        newMessage({name,content:msg})
-        console.log('sent')
+    const [name, setName] = useState();
+    const [msg, setMsg] = useState();
+    const [error, setError] = useState();
+    const handleNameChange = (ev: SyntheticEvent) => setName(ev.target.value)
+    const handleMsgChange = (ev: SyntheticEvent) => setMsg(ev.target.value)
+    const handleSubmit = () => {
+        const error = [];
+        if (!name || name.length < 1) {
+            error.push("Please tell us your name")
+        }
+        if (!msg || msg.length < 1) {
+            error.push("Please tell something")
+        }
+        if (error.length > 0) {
+            return setError(error)
+        }
+        setError(null)
+        return newMessage({name, content: msg})
     }
     const [_, updateMessage] = useMutation(MessageMutation);
-    const newMessage = ({ name, content }) => {
-
-            const variables = { name, content: content };
-            updateMessage(variables).then(result => {
-                // The result is almost identical to `updateTodoResult` with the exception
-                // of `result.fetching` not being set.
-                // It is an OperationResult.
-            });
+    const newMessage = ({name, content}) => {
+        const variables = {name, content: content};
+        updateMessage(variables).then(result => {
+            if (result.error) {
+                const err = result.error.graphQLErrors.map(el=>el.message)
+                setError(err)
+            }
+            setError(null)
+        });
 
     };
 
@@ -45,11 +55,13 @@ export const MessageForm = () => {
             </div>
             <div className={'name'}>
                 <p>Name/Title: </p>
-                <input type={'text'} minLength={3} maxLength={200} onChange={handleNameChange} />
+                <input type={'text'} minLength={3} maxLength={200} onChange={handleNameChange}/>
             </div>
-            <div className={'submit'}>
-                <button type={"submit"} onClick={handleSubmit}>Shout out!</button>
-            </div>
+
+            <a className={'submit'} onClick={handleSubmit}>Shout out!</a>
+            {error && <div className={'error'}>Your message was NOT send because <ul>
+                {error.map(err => <li>{err}</li>)}
+            </ul></div>}
         </div>
     )
 }

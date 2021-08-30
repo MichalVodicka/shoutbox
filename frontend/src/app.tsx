@@ -10,7 +10,7 @@ const App = () => {
         <React.Fragment>
             <div className={"title"}>Hope you're ready to shout!</div>
             <div className={"main"}>
-                <MessageList from={1} limit={3} />
+                <MessageList />
                 <MessageForm/>
             </div>
 

@@ -30,12 +30,12 @@ export const MessageList = () => {
     }, [result.fetching, reexecuteQuery]);
 
     return (
-        <Fragment>
+        <div className={'message-box'}>
             {result.data && result.data.message.map((el)=>{
-            return <Message name={el.name} content={el.content} created={el.created_at} />
+            return <Message name={el.name} content={el.content} created={el.created_at} ip={el.ip} user_agent={el.user_agent} />
         })
             }
-        </Fragment>
+        </div>
     )
     // ...
 };
