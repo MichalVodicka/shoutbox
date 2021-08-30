@@ -18,7 +18,10 @@ services:
       - ./seed_database.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
       - ./db-data/:/var/lib/postgresql/data/
   web:
-    build: .
+    build:
+      context: .
+      args:
+        - NODE_ENV=production
     env_file:
       - .env
     links:

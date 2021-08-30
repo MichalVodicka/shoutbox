@@ -7,6 +7,8 @@ COPY frontend/tsconfig.json .
 RUN npm ci
 COPY frontend/webpack.config.js .
 COPY frontend/src/ src/
+ARG NODE_ENV
+ENV NODE_ENV $NODE_ENV
 RUN npm run build
 
 FROM node:lts-alpine3.14

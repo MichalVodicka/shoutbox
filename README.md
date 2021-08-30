@@ -42,6 +42,7 @@ run webserver in another terminal/cmd/bash
 ```
 npm run start
 ```
+* for local development is necessary to change DB_HOST to localhost, on accordingly to you environment 
 
 ## Frontend 
 run watcher for build
