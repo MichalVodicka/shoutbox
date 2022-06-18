@@ -17,7 +17,7 @@
     "typeorm": "^0.2.37"
   },
   "devDependencies": {
-    "dotenv": "8.6.0",
+    "dotenv": "16.0.1",
     "@types/express": "4.17.13",
     "@types/node": "16.7.5",
     "nodemon": "2.0.12",
