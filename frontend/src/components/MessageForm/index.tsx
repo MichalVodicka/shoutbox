@@ -1,5 +1,5 @@
 import * as React from "react";
-import {SyntheticEvent, useState} from "react";
+import { ChangeEvent, useState } from "react";
 import {useMutation} from "urql";
 
 
@@ -15,13 +15,13 @@ const MessageMutation = `
 
 export const MessageForm = () => {
 
-    const [name, setName] = useState();
-    const [msg, setMsg] = useState();
-    const [error, setError] = useState();
-    const handleNameChange = (ev: SyntheticEvent) => setName(ev.target.value)
-    const handleMsgChange = (ev: SyntheticEvent) => setMsg(ev.target.value)
+    const [name, setName] = useState<string>();
+    const [msg, setMsg] = useState<string>();
+    const [error, setError] = useState<string[]|null>();
+    const handleNameChange = (ev: ChangeEvent<HTMLInputElement>) => setName(ev.target.value)
+    const handleMsgChange = (ev: ChangeEvent<HTMLTextAreaElement>) => setMsg(ev.target.value)
     const handleSubmit = () => {
-        const error = [];
+        const error: string[] = [];
         if (!name || name.length < 1) {
             error.push("Please tell us your name")
         }
@@ -60,7 +60,7 @@ export const MessageForm = () => {
 
             <a className={'submit'} onClick={handleSubmit}>Shout out!</a>
             {error && <div className={'error'}>Your message was NOT send because <ul>
-                {error.map(err => <li>{err}</li>)}
+                {error?.map(err => <li>{err}</li>)}
             </ul></div>}
         </div>
     )

@@ -1,4 +1,4 @@
-import {Component} from "react";
+import { ReactElement} from "react";
 
 type IProps = {
     name: string
@@ -8,15 +8,15 @@ type IProps = {
     user_agent: string
 }
 
-const translateURL = (text: string): Component[] => {
-    const replacer = (str: string): Component => {
+const translateURL = (text: string): ReactElement[] => {
+    const replacer = (str: string): ReactElement => {
         return <><a href={str}>{str}</a>{" "}</>
     }
     return [...text.split(' ')].map(chunk => {
         if (/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/=]*)/g.test(chunk)) {
             return replacer(chunk)
         }
-        return <>{chunk}{" "}</>
+        return <>`${chunk} `</>
     })
 }
 

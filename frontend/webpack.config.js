@@ -48,9 +48,8 @@ module.exports = {
         extensions: [".ts", ".tsx", ".js", ".jsx"]
     },
     devServer: {
-        contentBase: './dist',
-        inline: true,
-        quiet: false,
+        compress: true,
+        port: 9000,
     },
     module: {
         rules: [
