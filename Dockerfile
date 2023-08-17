@@ -1,5 +1,5 @@
 
-FROM node:lts-alpine3.14 AS febuild
+FROM node:lts-alpine3.16 AS febuild
 WORKDIR /app
 COPY frontend/package.json .
 COPY frontend/package-lock.json .
@@ -11,7 +11,7 @@ ARG NODE_ENV
 ENV NODE_ENV $NODE_ENV
 RUN npm run build
 
-FROM node:lts-alpine3.14
+FROM node:lts-alpine3.16
 WORKDIR /app
 COPY backend/package.json .
 COPY backend/package-lock.json .
